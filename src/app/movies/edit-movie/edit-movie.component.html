@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+    <div class="spinner-grow text-primary" role="status" *ngIf="isLoading">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div class="container">
+    <div class="movie" *ngIf="!isLoading && movie != null">
+        <h2 class="title">Modifier</h2>
+        <hr>
+        <form (submit)="onSubmit()" #movieForm="ngForm">
+            <div class="m-3">
+                <mdb-form-control>
+                    <input mdbInput type="text" id="form1" class="form-control" name="title" [(ngModel)]="movie.original_title" />
+                    <label mdbLabel class="form-label" for="form1">Name</label>
+                </mdb-form-control>
+            </div>
+            <div class="m-3">
+                <mdb-form-control>
+                    <input mdbInput type="date" id="form1" class="form-control" name="release_date" [(ngModel)]="movie.release_date" />
+                    <label mdbLabel class="form-label" for="form1">Release date</label>
+                </mdb-form-control>
+            </div>
+            <div class="m-3">
+                <mdb-form-control>
+                    <select mdbInput id="form1" class="form-control" name="name" multiple [(ngModel)]="movie.genre_ids" >
+                        <option [value]="genre.id" *ngFor="let genre of movie.genres">{{genre.name}}</option>
+                    </select>
+                    <label mdbLabel class="form-label" for="form1">Genres</label>
+                </mdb-form-control>
+            </div>
+            <div class="m-3">
+                <button mdbRipple type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+        
+    </div>
+</div>

@@ -1,0 +1,106 @@
+<header>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+    
+    <div class="container-fluid">
+      <a href="#" class="navbar-brand">Movies-Art</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarExample01"
+        aria-controls="navbarExample01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="collapse navbar-collapse " id="navbarExample01">
+        <div class="mx-auto mb-6"></div>
+        <ul class="navbar-nav">
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link" routerLink="">Home</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link" routerLink="movies/popular">Popular rated</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link" routerLink="movies/upcoming">Upcoming</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link" routerLink="movies/now_playing">Now playing</a>
+          </li>
+        </ul>
+        
+
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+</header>
+
+<router-outlet></router-outlet>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center text-lg-start">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Movie test</h5>
+        <br>
+
+        <p>
+          Made by Mohammed Alaoui 
+        </p>
+        <p>Email : simon.alaouii@gmail.com</p>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Movies</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a routerLink="movies/popular" class="text-white">Popular rated</a>
+          </li>
+          <li>
+            <a routerLink="movies/upcoming" class="text-white">Upcoming</a>
+          </li>
+          <li>
+            <a routerLink="movies/now_playing" class="text-white">Now playing</a>
+          </li>
+        </ul>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-0">LEGAL</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a routerLink="general-conditions" class="text-white">Terms of use</a>
+          </li>
+        </ul>
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" href="">Something</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

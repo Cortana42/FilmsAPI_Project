@@ -1,0 +1,43 @@
+
+.movies-list {
+    align-items: center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .movie {
+        width: 200px;
+        margin: 0px 10px;
+        cursor: pointer;
+        .image-wrapper {
+            border-radius: 6px;
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
+        .movie-title {
+            font-weight: 800;
+            white-space: nowrap;
+            overflow: hidden !important;
+            text-overflow: ellipsis;
+        }
+        .release-date {
+            color: #949494;
+            font-weight: 600;
+        }
+    }
+    
+}
+h2.title {
+    text-align: center;
+    margin: 15px 0px;
+}
+.page-link {
+    cursor: pointer;
+}
+.pagination-holder {
+    padding: 14px 10px;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,67 @@
+<h2 class="title">{{title[type]}}</h2>
+<div class="container mb-5">
+    <div class="row">
+        <div class="offset-md-9 col-md-3">
+            <div class="row g-3 align-items-center">
+                <mdb-form-control class="col-9">
+                  <input
+                    mdbInput
+                    type="text"
+                    id="formTextSearch"
+                    class="form-control"
+                    placeholder="Search"
+                    [(ngModel)]="searchLike"
+                  />
+                </mdb-form-control>
+                <div class="col-3">
+                    <button mdbRipple type="button" (click)="onSearch()" class="btn btn-primary btn-floating">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+<div class="movies" id="popular_movies">
+  <div class="movies-list">
+    <div class="spinner-grow text-primary" role="status" *ngIf="isLoading">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="movie" *ngFor="let item of movies" (click)="onSelectMovie(item.id)">
+      <div class="bg-image hover-overlay hover-zoom hover-shadow ripple image-wrapper">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + item.poster_path" />
+      </div>
+      <div class="movie-title">
+        {{ item.original_title }}
+      </div>
+      <div class="release-date">
+        {{ item.release_date }}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pagination-holder">
+    <nav *ngIf="!isLoading">
+      <ul class="pagination pagination-circle">
+        <li class="page-item">
+          <a class="page-link" (click)="onPreviousPage()" tabindex="-1" [disabled]="page <= 1"
+            >Previous</a
+          >
+        </li>
+        <li
+          class="page-item"
+          [ngClass]="{ active: item == page }"
+          aria-current="page"
+          *ngFor="let item of pages"
+        >
+          <a class="page-link" (click)="onSelectPage(item)">
+            {{ item }}
+            <span class="visually-hidden" *ngIf="item == page">(current)</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" (click)="onNextPage()" [disabled]="page >= total_pages">Next</a>
+        </li>
+      </ul>
+    </nav>
+</div>

@@ -1,0 +1,68 @@
+<div
+  id="intro-example"
+  class="p-5 text-center bg-image"
+  style="
+    background-image: url('https://www.geoado.com/wp-content/uploads/2020/09/Dune.jpg');
+  "
+>
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.521)">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="text-white">
+        <h1 class="mb-3">UFT test project</h1>
+        <h5 class="mb-4">I hope you will like it ;)</h5>
+        <a
+          class="btn btn-outline-light btn-lg m-2"
+          href="#popular_movies"
+          role="button"
+          >Popular movies</a
+        >
+        <a
+          class="btn btn-outline-light btn-lg m-2"
+          href="#upcoming_movies"
+          role="button"
+          >Upcoming movies</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="title">What's Popular</h2>
+<div class="movies" id="popular_movies">
+    <div class="movies-list">
+        <div class="spinner-grow text-primary" role="status" *ngIf="isLoading[0]">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="movie" *ngFor="let item of popularMovies" (click)="onSelectMovie(item.id)">
+            <div class="bg-image hover-overlay hover-zoom hover-shadow ripple image-wrapper">
+                <img [src]="'https://image.tmdb.org/t/p/w500' + item.poster_path">
+            </div>
+            <div class="movie-title">
+                {{item.original_title}}
+            </div>
+            <div class="release-date">
+                {{item.release_date}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="title">Upcoming</h2>
+<div class="movies-lists" id="upcoming_movies">
+    <div class="movies-list">
+        <div class="spinner-grow text-primary" role="status" *ngIf="isLoading[1]">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="movie" *ngFor="let item of upcomingMovies" (click)="onSelectMovie(item.id)">
+            <div class="bg-image hover-overlay hover-zoom hover-shadow ripple image-wrapper">
+                <img [src]="'https://image.tmdb.org/t/p/w500' + item.poster_path">
+            </div>
+            <div class="movie-title">
+                {{item.original_title}}
+            </div>
+            <div class="release-date">
+                {{item.release_date}}
+            </div>
+        </div>
+    </div>
+</div>

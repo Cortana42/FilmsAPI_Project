@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="spinner-grow text-primary" role="status" *ngIf="isLoading">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div class="container">
+    <div class="movie" *ngIf="!isLoading && movie != null">
+        <h2 class="title">
+            {{movie.original_title}}
+            <button mdbRipple type="button" (click)="onEditMovie()" class="btn btn-primary btn-floating">
+                <i class="fas fa-pen"></i>
+            </button>
+        </h2>
+        <hr>
+        <div class="image-wrapper">
+            <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path">
+        </div>
+        <div class="release-date">Release date : {{movie.release_date}}</div>
+        <div class="genres">
+            <span class="bold">Genres : </span>
+            <span *ngFor="let genre of movie.genres;let i = index">
+                {{genre.name}}
+                {{i+1 < movie.genres.length ? ',' : '.'}}
+            </span>
+        </div>
+        <hr>
+        <h4>Actors</h4>
+        <div class="actors">
+            <div class="actor" *ngFor="let actor of credits">
+                <div class="actor-image">
+                    <div class="actor-image-wrapper">
+                        <img [src]="'https://image.tmdb.org/t/p/w500' + actor.profile_path">
+                    </div>
+                </div>
+                <div class="actor-name">
+                    <span>
+                        {{actor.name}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
